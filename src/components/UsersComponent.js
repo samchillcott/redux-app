@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { getUsers } from '../redux/actions/users';
 import CardComponent from './CardComponent';
 
 const UsersComponent = () => {
@@ -18,10 +19,10 @@ const UsersComponent = () => {
     }, [])
     return (
         <>
-        {users.length > 0 && users.map((user) => {
-            <CardComponent user={user} key={user.id}/>
-        })}
-        {users.length === 0 && <p>No users available</p>}
+     {users.length > 0 && users.map((user) => (
+        <CardComponent key={user.id} user={user} />
+      ))}
+      {users.length === 0 && <p>No users available!</p>}
         </>
     )
 }
